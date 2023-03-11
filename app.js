@@ -3,12 +3,12 @@ const expressLayouts = require("express-ejs-layouts");
 const bodyParser = require("body-parser");
 const cors = require("cors");
 const mongoose = require("mongoose");
+const ejs = require("ejs");
 const patientModel = require("./models/patientModel");
 const app = express();
 require("dotenv").config();
 
 // EJS.
-app.use(expressLayouts);
 app.set("view engine", "ejs");
 
 // BodyParser.
@@ -25,6 +25,18 @@ connection.once("open", () => {
 });
 
 // MongoDB ends
+
+// get reqs
+
+app.get("/", function (req, res) {
+  res.render("patientSignup");
+});
+
+// post reqs
+app.post("/patientSignup", function (req, res) {
+  const data = req.body;
+  console.log(data);
+});
 
 const PORT = process.env.PORT || 5000;
 // Listen to the Port.
