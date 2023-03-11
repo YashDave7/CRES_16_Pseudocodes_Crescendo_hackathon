@@ -37,8 +37,8 @@ nav {
 }
 a {
   text-decoration: none;
-  /* color: white; */
-  color: black;
+  color: white;
+  /* color: black; */
   display: flex;
   justify-content: space-between;
   flex-wrap: wrap;
@@ -52,17 +52,21 @@ a {
 }
 
 #home {
+    font-family: "Playfair Display", serif;
+
   margin-right: 50px;
   padding-top: 20px;
     font-size: 1.7rem;
-    font-weight: bold;
+    font-weight: lighter;
 }
 
 #about {
   padding-top: 20px;
   padding-right: 50px;
   font-size: 1.7rem;
-  font-weight: bold;
+  font-weight: lighter;
+  font-family: "Playfair Display", serif;
+
 }
 /* button {
   font-family: Arial, "Helvetica Neue", Helvetica, sans-serif;

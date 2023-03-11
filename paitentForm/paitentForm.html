@@ -10,7 +10,7 @@
     <title>Retailer Login</title>
   </head>
   <body>
-    <nav>
+    <nav style="background-color: #217cff;">
       <div class="nav-left">
         <a href="#" id="logo">AnnapaUNaaQ</a>
       </div>
@@ -24,66 +24,41 @@
           </button> -->
       </div>
     </nav>
-    <h2 id="d">Ready to be a Smart Retailer!</h2>
-    <h4 style="text-align: center;">"Alone we can do so little,together we can do so much"<br>-Helen Keller</h4>
+    <h2 id="d">Be a part of smart healthcare</h2>
+    <h4 style="text-align: center;">"Time and health are two precious assets that we don't recognize and appreciate until they have been depleted"</h4>
     <div class="card-bunch">
-      <div class=>
+      <div>
         <div class="container">
           <h3>Patient Registration</h3>
             <form id="form">
             <div class="form-control">
                 <label for="paitentName">Name</label>
-                <input type="text" id="paitentName" >
+                <input type="text" name="name" >
                 <label for="paitentAge">Age</label>
-                <input type="text" id="paitentName" >
+                <input type="text" name="age" >
                 <label for="paitentName">Weight</label>
-                <input type="text" id="paitentName" >
+                <input type="text" name="weight" >
                 <label for="paitentName">Allergies</label>
-                <input type="text" id="paitentName" >
+                <input type="text" name="allergies" >
                 <label for="paitentName">Gender</label>
-                <input type="text" id="paitentName" >
-                <label for="paitentName"></label>
+                <input type="text" name="gender" >
+              
                 <label for="bloodpressure"
                 >How is your blood pressure?</label
-              ><br />
-              <div class="check">
-                <input
-                  type="checkbox"
-                  placeholder="Enter amount..."
-                  id="high"
-                />
-                <label for="yes18">High</label>
-                <input
-                  type="checkbox"
-                  placeholder="Enter amount..."
-                  id="low"
-                />
-                <label for="yes18">Normal</label>
-                <input
-                  type="checkbox"
-                  placeholder="Enter amount..."
-                  id="medium"
-                />
-                <label for="yes18">Low</label>
-              </div>
+              >
+              <div class="container">
+                <label><input type="checkbox" name="option1" value="option1" onclick="uncheckOthers(this)">High</label>
+                <label><input type="checkbox" name="option2" value="option2" onclick="uncheckOthers(this)">Normal</label>
+                <label><input type="checkbox" name="option3" value="option3" onclick="uncheckOthers(this)">Low</label>
+            </div>
               <label for="diabestes"
                 >Do you have diabetes?</label
-              ><br />
-              <div class="check">
-                <input
-                  type="checkbox"
-                  placeholder="Enter amount..."
-                  id="yes"
-                />
-                <label for="yes">Yes</label>
-                <input
-                  type="checkbox"
-                  placeholder="Enter amount..."
-                  id="no"
-                />
-                <label for="no">No</label>
-               
-              </div>
+              >
+              <div class="container">
+                <label><input type="checkbox" name="option1" value="option1" onclick="uncheckOthers(this)">Yes</label>
+                <label><input type="checkbox" name="option2" value="option2" onclick="uncheckOthers(this)">No</label>
+              
+            </div>
            
                
               <!-- <input type="" id="text" placeholder="Enter Product Name..." /> -->
@@ -141,5 +116,5 @@
       </div>
     </footer> -->
   </body>
-  <script src="script2.js"></script>
+  <script src="paitentform.js"></script>
 </html>

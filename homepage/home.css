@@ -1,0 +1,76 @@
+/* Navbar */
+.navbar {
+	background-color: #fff;
+	box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.1);
+    position: sticky;
+    top: 0;
+    z-index: 9999;
+    transition: 2s;
+}
+.navbar-brand {
+	font-weight: bold;
+	font-size: 24px;
+}
+.navbar-nav .nav-item .nav-link {
+	color: #333;
+	font-weight: 500;
+}
+.navbar-nav .nav-item.active .nav-link {
+	color: #007bff;
+}
+/* Hero Section */
+.hero-section {
+	background-color: #f6f6f6;
+	padding: 80px 0;
+}
+.hero-section h1 {
+	font-size: 48px;
+	font-weight: bold;
+	margin-bottom: 30px;
+}
+.hero-section p {
+	font-size: 18px;
+	line-height: 1.5;
+	color: #666;
+	margin-bottom: 30px;
+}
+.hero-section button {
+	font-size: 18px;
+	padding: 12px 40px;
+}
+.hero-section img {
+	max-width: 100%;
+	height: auto;
+}
+/* Services Section */
+.services-section {
+	padding: 80px 0;
+}
+.services-section h2 {
+	font-size: 36px;
+	font-weight: bold;
+	margin-bottom: 30px;
+}
+.services-section .card {
+	border: none;
+	box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.1);
+	margin-bottom: 30px;
+}
+.services-section .card img {
+	max-width: 100%;
+	height: auto;
+}
+.services-section .card-title {
+	font-size: 24px;
+	font-weight: bold;
+	margin-bottom: 15px;
+}
+.services-section .card-text {
+	font-size: 16px;
+	color: #666;
+	margin-bottom: 15px;
+}
+.services-section .btn-primary {
+	font-size: 16px;
+	padding: 10px 30px;
+}
