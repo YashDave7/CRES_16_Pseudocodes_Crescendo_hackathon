@@ -14,6 +14,7 @@ app.set("view engine", "ejs");
 // BodyParser.
 app.use(express.urlencoded({ extended: false }));
 app.use(express.json());
+app.use(express.static("public"));
 app.use(cors());
 
 // MongoDB starts
@@ -33,9 +34,23 @@ app.get("/", function (req, res) {
 });
 
 // post reqs
-app.post("/patientSignup", function (req, res) {
+app.post("/patientSignup", async function (req, res) {
   const data = req.body;
-  console.log(data);
+  const newPatient = new patientModel({
+    name: data.name,
+    age: data.age,
+    weight: data.weight,
+    allergies: data.allergies,
+    gender: data.gender,
+    bloodPressure: data.bloodPressure,
+    diabetes: data.diabetes,
+  });
+  console.log(newPatient);
+
+  await newPatient.save().catch((err) => {
+    console.log(err);
+  });
+  res.redirect("/patientProfile");
 });
 
 const PORT = process.env.PORT || 5000;
