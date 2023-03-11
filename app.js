@@ -10,7 +10,7 @@ const md5 = require("md5");
 const patientModel = require("./models/patientModel");
 const doctorModel = require("./models/doctorModel");
 const app = express();
-const QRCode = require('qrcode')
+const QRCode = require("qrcode");
 require("dotenv").config();
 
 // EJS.
@@ -31,6 +31,9 @@ connection.once("open", () => {
 });
 
 // MongoDB ends
+
+const user1 = {};
+const user2 = {};
 
 // get reqs
 
@@ -73,11 +76,11 @@ app.post("/patientSignup", async function (req, res) {
       bloodPressure: md5(data.bloodPressure),
       diabetes: md5(data.diabetes),
     });
+    user1 = newPatient;
     newPatient.save().catch((err) => {
       console.log(err);
     });
   });
-
   res.redirect("/patientProfile");
 });
 
@@ -93,6 +96,7 @@ app.post("/doctorSignup", async function (req, res) {
       password: hash,
       hospital: md5(data.hospital),
     });
+    user2 = newDoctor;
 
     newDoctor.save().catch((err) => {
       console.log(err);
@@ -104,7 +108,7 @@ app.post("/doctorSignup", async function (req, res) {
 
 app.post("/patientLogin", function (req, res) {
   const username = md5(req.body.username);
-  const password = (req.body.password);
+  const password = req.body.password;
 
   patientModel
     .findOne({ username: username })
@@ -113,6 +117,7 @@ app.post("/patientLogin", function (req, res) {
         bcrypt.compare(password, foundUser.password, function (err, result) {
           if (result === true) {
             console.log("Found Patient!");
+            user1 = foundUser
             res.redirect("/patientProfile");
           } else {
             res.redirect("/patientLogin");
@@ -135,6 +140,7 @@ app.post("/doctorLogin", function (req, res) {
         bcrypt.compare(password, foundUser.password, function (err, result) {
           if (result === true) {
             console.log("Found Doctor");
+            user2 = foundUser;
             res.redirect("/doctorProfile");
           } else {
             res.redirect("/doctorLogin");
@@ -147,21 +153,16 @@ app.post("/doctorLogin", function (req, res) {
     });
 });
 
-
 app.get("/doctorHome", function (req, res) {
   res.render("DoctorHome.ejs");
 });
 
-
-app.get("/patientHome", function (req, res) {
-
-  // Creating the data
-  let data = {
-    
-  }
+app.get("/patientHome", async function (req, res) {
+  // Creating the dat
+  let data = {user1};
 
   // Converting the data into String format
-  let stringdata = JSON.stringify(data)
+  let stringdata = JSON.stringify(data);
 
   // Print the QR code to terminal
   // QRCode.toString(stringdata,
@@ -178,10 +179,10 @@ app.get("/patientHome", function (req, res) {
   //   console.log(code)
 
   QRCode.toFile("public/qrCode.png", stringdata, function (err) {
-    if (err) return console.log("error occurred")
+    if (err) return console.log("error occurred");
     // Printing the code
-    res.render('patientHome.ejs');
-  })
+    res.render("patientHome.ejs");
+  });
 });
 
 const PORT = process.env.PORT || 5000;
