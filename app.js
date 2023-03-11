@@ -117,7 +117,7 @@ app.post("/patientLogin", function (req, res) {
         bcrypt.compare(password, foundUser.password, function (err, result) {
           if (result === true) {
             console.log("Found Patient!");
-            user1 = foundUser
+            user1 = foundUser;
             res.redirect("/patientProfile");
           } else {
             res.redirect("/patientLogin");
@@ -159,7 +159,7 @@ app.get("/doctorHome", function (req, res) {
 
 app.get("/patientHome", async function (req, res) {
   // Creating the dat
-  let data = {user1};
+  let data = { user1 };
 
   // Converting the data into String format
   let stringdata = JSON.stringify(data);
@@ -181,7 +181,7 @@ app.get("/patientHome", async function (req, res) {
   QRCode.toFile("public/qrCode.png", stringdata, function (err) {
     if (err) return console.log("error occurred");
     // Printing the code
-    res.render("patientHome.ejs");
+    res.render("patientHome.ejs", { patientData: patientData });
   });
 });
 
