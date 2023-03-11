@@ -31,7 +31,7 @@ connection.once("open", () => {
 // get reqs
 
 app.get("/", function (req, res) {
-  res.send("This is Home Page!");
+  res.render("home");
 });
 
 app.get("/patientSignup", function (req, res) {
