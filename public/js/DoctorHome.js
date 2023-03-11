@@ -2,6 +2,7 @@
 function onScanSuccess(qrCodeMessage) {
     document.getElementById("result").innerHTML =
       '<span class="result">' + qrCodeMessage + "</span>";
+      console.log(qrCodeMessage);
   }
   
   // When scan is unsuccessful fucntion will produce error message
