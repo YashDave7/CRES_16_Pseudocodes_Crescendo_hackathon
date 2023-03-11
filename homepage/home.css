@@ -139,13 +139,13 @@ height: 365px;
 }
 .fa-solid {
    
-    color: #ef8172;
+    color: #007bff;
 
 }
 
 .fa-regular {
     /* font-size: 500%; */
-    color: #ef8172;
+    color: #007bff;
 }
 i:hover {
     color: #ff4c68;
@@ -153,12 +153,12 @@ i:hover {
 .section_padding{
     padding: 7% 6%;
 }
-a{
+/* a{
     font-family: "Montserrat-light";
     font-size: 1.2rem;
     text-emphasis: none;
     color: #333;
-}
+} */
 ul{
     list-style: none;
 }
