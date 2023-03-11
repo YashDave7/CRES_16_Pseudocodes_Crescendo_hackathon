@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="./css/style1.css">
+    <title>Donor</title>
+  </head>
+  <body>
+    <nav>
+      <div class="nav-left">
+        <a href="#" id="logo">AnnapaUNaaQ</a>
+      </div>
+      <div class="nav-right">
+        <a href="index.html" id="home">Home</a>
+        <a href="index.html#whoarewe" id="about">About Us</a>
+        <!-- <button id="join">
+          <span class="transition"></span>
+          <span class="gradient"></span>
+          <span class="label">Join Us</span>
+        </button> -->
+      </div>
+    </nav>
+    <h2 id="d">Ready to be a Donor!</h2>
+    <h4>"It's not how much we give,but how much love we put into giving" -Mother Teresa</h4>
+    <div class="card-bunch">
+      <!-- CARD TO ADD GOODS -->
+      <div class="card" id="addgoods">
+        <div class="container">
+          <h3>Add new Product</h3>
+          <form>
+            <div class="form-control">
+              <label for="text">Type of Product</label><br />
+              <!-- <input type="" id="text" placeholder="Enter Product Name..." /> -->
+              <select id="mySelect" onchange="storeValue()">
+                <option>Select</option>
+                <option value="Indian Bread" id="indianbread">
+                  Indian Bread
+                </option>
+                <option value="Rice" id="rice">Rice</option>
+                <option value="Pulses" id="pulses">Pulses</option>
+                <option value="Desserts" id="desserts">Desserts</option>
+                <option value="Fried Snacks" id="friedsnacks">
+                  Fried Snacks
+                </option>
+                <option value="Salads" id="salads">Salads</option>
+                <option value="Dry Vegetables" id="dryvegetables">
+                  Dry Vegetables
+                </option>
+                <option value="Fruits and Vegetables" id="fruitsandvegetables">
+                  Fruits and Vegetables
+                </option>
+                <option value="Curries" id="curries">Curries</option>
+                <option value="Starter Snacks" id="startersnacks">
+                  Starter Snacks
+                </option>
+                <!-- <option value="Cold Snacks" id="coldsnacks">Cold Snacks</option> -->
+              </select>
+            </div>
+            <div class="form-control">
+              <label for="quantity">Quantity<br /> </label>
+              <input
+                type="number"
+                id="quantity"
+                min="1"
+                placeholder="Enter Quantity"
+                onchange="getQuantity()"
+              />
+            </div>
+            <div class="form-control">
+              <label for="Bestbeforeday"
+                >Was the food prepared less than 18 hours ago?</label
+              ><br />
+              <div class="check">
+                <input
+                  type="checkbox"
+                  placeholder="Enter amount..."
+                  id="yes18"
+                />
+                <label for="yes18">Yes</label>
+              </div>
+              <br />
+            </div>
+            <!-- <button id="btn">Add Goods</button> -->
+            <button id="btn">
+              <span>Add Donation</span>
+            </button>
+            <button id="btn1"><span><a href="./thank-donor.html" style="color: white;">Finish and Submit</a></span></button>  
+            </form>
+   
+        </div>
+      </div>
+      <!-- CARD FOR YOUR LOCATION -->
+      <div class="card" id="goodslist">
+        <h3>List Of Your Donation Goods</h3>
+        <ul id="list" class="list"></ul>
+      </div>
+
+      <!-- CARD FOR LIST OF DONATIONS -->
+      <div class="card" id="location">
+        <h3>Your Location</h3>
+        <div id="map"></div>
+      </div>
+    </div>
+
+    <!-- FOOTER -->
+    <footer class="footer">
+      <div class="trademark footer_element">
+        <img
+          src="logo.png"
+          width="75px"
+          alt="mcd"
+          style="background-color: white"
+        />
+        <p>© Annpurna Founation 2014-2021 (Yamkar Project Trust)</p>
+      </div>
+      <div class="social footer_element">
+        <h2>Connect with us</h2>
+        <div class="social_media">
+          <a href="https://www.instagram.com/csi_tsec/"
+            ><img src="instagram-line.png" alt="insta" class="socials"
+          /></a>
+          <a href="https://www.facebook.com/csitsecbranch/"
+            ><img src="facebook-circle-fill.png" alt="insta" class="socials"
+          /></a>
+          <a
+            href="https://in.linkedin.com/company/csi-tsec?original_referer=https%3A%2F%2Fwww.google.com%2F"
+            ><img src="linkedin-box-fill.png" alt="insta" class="socials"
+          /></a>
+          <a href="https://mobile.twitter.com/csi_tsec">
+            <img src="twitter-line.png" class="socials" alt="twit"
+          /></a>
+          <a href="https://www.youtube.com/channel/UCGj3zDHE2xAXHZ2v24CxObA"
+            ><img src="youtube-line.png" class="socials" alt="yt"
+          /></a>
+        </div>
+      </div>
+      <div class="footer_element data">
+        <div>NGO Registration Number: 71/BK4/2015</div>
+        <div>12AA, 80G & FCRA Certified</div>
+        <div>FSSAI Registration number: 22419566000215</div>
+        <div>
+          Corporate Office - No 4, Kothari Layout, 1st street, Ghatkopar,
+          Mumbai, Maharashtra, 641045.
+        </div>
+      </div>
+    </footer>
+    <script
+      src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCweqTp4h-6rtfJMXq3cPPZiXBYytDHYso&callback=initMap&libraries=&v=weekly"
+      async
+    ></script>
+  </body>
+  <script src="script1.js"></script>
+</html>
