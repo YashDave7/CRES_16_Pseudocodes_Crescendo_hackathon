@@ -30,6 +30,10 @@ connection.once("open", () => {
 
 // get reqs
 
+app.get("/", function (req, res) {
+  res.send("This is Home Page!");
+});
+
 app.get("/patientSignup", function (req, res) {
   res.render("patientSignup");
 });
@@ -38,11 +42,25 @@ app.get("/doctorSignup", function (req, res) {
   res.render("DoctorSignup");
 });
 
+app.get("/patientLogin", function (req, res) {
+  res.send("This is patient Login");
+});
+
+app.get("/patientProfile", function (req, res) {
+  res.send("This is patient profile!");
+});
+
+app.get("/doctorProfile", function (req, res) {
+  res.send("This is Doctor Profile!");
+});
+
 // post reqs
 app.post("/patientSignup", async function (req, res) {
   const data = req.body;
   const newPatient = new patientModel({
     name: data.name,
+    username: data.username,
+    password: data.password,
     age: data.age,
     weight: data.weight,
     allergies: data.allergies,
@@ -73,6 +91,26 @@ app.post("/doctorSignup", async function (req, res) {
     console.log(err);
   });
   res.redirect("/doctorProfile");
+});
+
+app.post("/patientLogin", function (req, res) {
+  const username = req.body.username;
+  const password = req.body.password;
+
+  patientModel
+    .findOne({ username: username })
+    .then((foundUser) => {
+      if (foundUser) {
+        if (foundUser.password === password) {
+          res.redirect("/patientProfile");
+        }
+      } else {
+        res.redirect("/patientLogin");
+      }
+    })
+    .catch((err) => {
+      console.log(err);
+    });
 });
 
 const PORT = process.env.PORT || 5000;
