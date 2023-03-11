@@ -63,6 +63,8 @@ img{
     height:480px;
 	border: solid;
 	border-width: 3px 3px 3px 3px;
+    left: 0;
+    position: fixed;
 }
 #result{
     border: solid;
