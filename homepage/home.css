@@ -161,6 +161,7 @@ i:hover {
 } */
 ul{
     list-style: none;
+    padding-left: 0%;
 }
 /* .col-xl-2{
     text-align: center;
@@ -259,5 +260,17 @@ ul{
     stroke: #fff;
   }
   
-  
+   .click-btn {
+    background-color: #97DEFF;
+    color: #fff;
+    border-radius: 5px;
+    border: 0;
+    position: absolute;
+    right: 5px;
+    width: 40px;
+    height: 40px;
+    line-height: 30px;
+    text-align: center;
+    display: inline-block;
+}
   
