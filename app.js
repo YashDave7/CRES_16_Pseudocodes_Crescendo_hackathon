@@ -10,6 +10,7 @@ const md5 = require("md5");
 const patientModel = require("./models/patientModel");
 const doctorModel = require("./models/doctorModel");
 const app = express();
+const QRCode = require('qrcode')
 require("dotenv").config();
 
 // EJS.
@@ -149,6 +150,38 @@ app.post("/doctorLogin", function (req, res) {
 
 app.get("/doctorHome", function (req, res) {
   res.render("DoctorHome.ejs");
+});
+
+
+app.get("/patientHome", function (req, res) {
+
+  // Creating the data
+  let data = {
+    
+  }
+
+  // Converting the data into String format
+  let stringdata = JSON.stringify(data)
+
+  // Print the QR code to terminal
+  // QRCode.toString(stringdata,
+  //   function (err, QRcode) {
+  //     if (err) return console.log("error ")
+
+  //     console.log(QRcode)
+  //   })
+
+  // // Converting the data into base64
+  // QRCode.toDataURL(stringdata, function (err, code) {
+  //   if (err) return console.log("error occurred")
+  //   // Printing the code
+  //   console.log(code)
+
+  QRCode.toFile("public/qrCode.png", stringdata, function (err) {
+    if (err) return console.log("error occurred")
+    // Printing the code
+    res.render('patientHome.ejs');
+  })
 });
 
 const PORT = process.env.PORT || 5000;
