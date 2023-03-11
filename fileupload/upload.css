@@ -2,6 +2,7 @@ body {
     margin: 0;
     padding: 0;
     font-family: Arial, sans-serif;
+    background-image: url("upback.jpg" );
   }
   
   form {
@@ -35,4 +36,50 @@ body {
     max-width: 100%;
     max-height: 500px;
   }
-  
+  /* Style for form */
+  #fileUploadForm {
+    max-width: 500px;
+    margin: 0 auto;
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    background-color: #f5f5f5;
+  }
+
+  /* Style for file input */
+  #fileInput {
+    margin-bottom: 10px;
+  }
+
+  /* Style for submit button */
+  #submitButton {
+    display: block;
+    margin: 0 auto;
+  }
+
+  /* Style for uploaded file table */
+  #fileTable {
+    max-width: 800px;
+    margin: 20px auto;
+    border-collapse: collapse;
+    text-align: center;
+  }
+
+  /* Style for table headers */
+  th {
+    background-color: #f2f2f2;
+  }
+
+  /* Style for table rows */
+  tr:nth-child(even) {
+    background-color: #f2f2f2;
+  }
+
+  /* Style for table data */
+  td {
+    padding: 8px;
+  }
+  .container{
+    margin-top: 50px;
+  }
+ 
