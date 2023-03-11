@@ -21,7 +21,7 @@
 /* Hero Section */
 .hero-section {
 	background-color: #f6f6f6;
-	padding: 80px 0;
+	padding: 100px 0;
 }
 .hero-section h1 {
 	font-size: 48px;
@@ -42,9 +42,38 @@
 	max-width: 100%;
 	height: auto;
 }
+/* EHR-SECTION */
+.ehr-section {
+	background-color: white;
+ 
+	padding: 100px 0;
+}
+.ehr-section h1 {
+	font-size: 48px;
+	font-weight: bold;
+	margin-bottom: 30px;
+}
+.ehr-section p {
+	font-size: 18px;
+	line-height: 1.5;
+	color: #666;
+	margin-bottom: 30px;
+}
+.ehr-section button {
+	font-size: 18px;
+	padding: 12px 40px;
+}
+.ehr-section img {
+	max-width: 100%;
+	height: auto;
+}
 /* Services Section */
 .services-section {
-	padding: 80px 0;
+	padding: 180px 0;
+    background-image: url(img4.jpg);
+    background-repeat: no-repeat;
+    
+  background-size: cover;
 }
 .services-section h2 {
 	font-size: 36px;
@@ -73,4 +102,7 @@
 .services-section .btn-primary {
 	font-size: 16px;
 	padding: 10px 30px;
+}
+.special{
+    background-color: #007bff;
 }
