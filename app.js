@@ -5,6 +5,7 @@ const cors = require("cors");
 const mongoose = require("mongoose");
 const ejs = require("ejs");
 const patientModel = require("./models/patientModel");
+const doctorModel = require("./models/doctorModel");
 const app = express();
 require("dotenv").config();
 
@@ -29,8 +30,12 @@ connection.once("open", () => {
 
 // get reqs
 
-app.get("/", function (req, res) {
+app.get("/patientSignup", function (req, res) {
   res.render("patientSignup");
+});
+
+app.get("/doctorSignup", function (req, res) {
+  res.render("DoctorSignup");
 });
 
 // post reqs
@@ -45,12 +50,28 @@ app.post("/patientSignup", async function (req, res) {
     bloodPressure: data.bloodPressure,
     diabetes: data.diabetes,
   });
-  console.log(newPatient);
 
   await newPatient.save().catch((err) => {
     console.log(err);
   });
   res.redirect("/patientProfile");
+});
+
+app.post("/doctorSignup", async function (req, res) {
+  const data = req.body;
+  const newDoctor = new doctorModel({
+    select: data.select,
+    upr: data.upr,
+    name: data.name,
+    username: data.username,
+    password: data.password,
+    hospital: data.hospital,
+  });
+
+  await newDoctor.save().catch((err) => {
+    console.log(err);
+  });
+  res.redirect("/doctorProfile");
 });
 
 const PORT = process.env.PORT || 5000;
