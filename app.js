@@ -3,7 +3,10 @@ const expressLayouts = require("express-ejs-layouts");
 const bodyParser = require("body-parser");
 const cors = require("cors");
 const mongoose = require("mongoose");
+const bcrypt = require("bcrypt");
+const saltRounds = 10;
 const ejs = require("ejs");
+const md5 = require("md5");
 const patientModel = require("./models/patientModel");
 const doctorModel = require("./models/doctorModel");
 const app = express();
@@ -57,55 +60,85 @@ app.get("/doctorProfile", function (req, res) {
 // post reqs
 app.post("/patientSignup", async function (req, res) {
   const data = req.body;
-  const newPatient = new patientModel({
-    name: data.name,
-    username: data.username,
-    password: data.password,
-    age: data.age,
-    weight: data.weight,
-    allergies: data.allergies,
-    gender: data.gender,
-    bloodPressure: data.bloodPressure,
-    diabetes: data.diabetes,
+  bcrypt.hash(data.password, saltRounds, function (err, hash) {
+    const newPatient = new patientModel({
+      name: md5(data.name),
+      username: md5(data.username),
+      password: hash,
+      age: md5(data.age),
+      weight: md5(data.weight),
+      allergies: md5(data.allergies),
+      gender: md5(data.gender),
+      bloodPressure: md5(data.bloodPressure),
+      diabetes: md5(data.diabetes),
+    });
+    newPatient.save().catch((err) => {
+      console.log(err);
+    });
   });
 
-  await newPatient.save().catch((err) => {
-    console.log(err);
-  });
   res.redirect("/patientProfile");
 });
 
 app.post("/doctorSignup", async function (req, res) {
   const data = req.body;
-  const newDoctor = new doctorModel({
-    select: data.select,
-    upr: data.upr,
-    name: data.name,
-    username: data.username,
-    email: data.email,
-    password: data.password,
-    hospital: data.hospital,
+  bcrypt.hash(data.password, saltRounds, function (err, hash) {
+    const newDoctor = new doctorModel({
+      select: md5(data.select),
+      upr: md5(data.upr),
+      name: md5(data.name),
+      username: md5(data.username),
+      email: md5(data.email),
+      password: hash,
+      hospital: md5(data.hospital),
+    });
+
+    newDoctor.save().catch((err) => {
+      console.log(err);
+    });
   });
 
-  await newDoctor.save().catch((err) => {
-    console.log(err);
-  });
   res.redirect("/doctorProfile");
 });
 
 app.post("/patientLogin", function (req, res) {
-  const username = req.body.username;
-  const password = req.body.password;
+  const username = md5(req.body.username);
+  const password = (req.body.password);
 
   patientModel
     .findOne({ username: username })
     .then((foundUser) => {
       if (foundUser) {
-        if (foundUser.password === password) {
-          res.redirect("/patientProfile");
-        }
-      } else {
-        res.redirect("/patientLogin");
+        bcrypt.compare(password, foundUser.password, function (err, result) {
+          if (result === true) {
+            console.log("Found Patient!");
+            res.redirect("/patientProfile");
+          } else {
+            res.redirect("/patientLogin");
+          }
+        });
+      }
+    })
+    .catch((err) => {
+      console.log(err);
+    });
+});
+
+app.post("/doctorLogin", function (req, res) {
+  const username = md5(req.body.username);
+  const password = req.body.password;
+  doctorModel
+    .findOne({ username: username })
+    .then((foundUser) => {
+      if (foundUser) {
+        bcrypt.compare(password, foundUser.password, function (err, result) {
+          if (result === true) {
+            console.log("Found Doctor");
+            res.redirect("/doctorProfile");
+          } else {
+            res.redirect("/doctorLogin");
+          }
+        });
       }
     })
     .catch((err) => {
