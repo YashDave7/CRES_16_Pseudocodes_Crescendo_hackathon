@@ -154,7 +154,7 @@ i:hover {
     padding: 7% 6%;
 }
 a{
-    font-family: "Montserrat-light";
+    /* font-family: "Montserrat-light"; */
     font-size: 1.2rem;
     text-emphasis: none;
     color: #333;

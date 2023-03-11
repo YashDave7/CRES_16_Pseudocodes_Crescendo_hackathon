@@ -199,5 +199,7 @@
     stroke: #fff;
   }
   
-  
+  .qr:hover{
+    border: black ;
+  }
   
