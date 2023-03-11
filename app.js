@@ -146,6 +146,11 @@ app.post("/doctorLogin", function (req, res) {
     });
 });
 
+
+app.get("/doctorHome", function (req, res) {
+  res.render("DoctorHome.ejs");
+});
+
 const PORT = process.env.PORT || 5000;
 // Listen to the Port.
 app.listen(PORT, () => {
