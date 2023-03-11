@@ -1,0 +1,38 @@
+body {
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+  }
+  
+  form {
+    margin: 50px auto;
+    text-align: center;
+  }
+  
+  #file {
+    padding: 10px;
+  }
+  
+  button {
+    padding: 10px 20px;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+  }
+  
+  button:hover {
+    background-color: #3e8e41;
+  }
+  
+  #file-container {
+    margin: 50px auto;
+    text-align: center;
+  }
+  
+  #file-container img {
+    max-width: 100%;
+    max-height: 500px;
+  }
+  
