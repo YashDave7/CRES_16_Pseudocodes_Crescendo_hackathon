@@ -64,6 +64,7 @@ app.post("/doctorSignup", async function (req, res) {
     upr: data.upr,
     name: data.name,
     username: data.username,
+    email: data.email,
     password: data.password,
     hospital: data.hospital,
   });
