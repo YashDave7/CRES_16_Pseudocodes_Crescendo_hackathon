@@ -1,5 +1,6 @@
 const mongoose = require("mongoose");
 
-const patientModel = new mongoose.Schema({
-    
-})
+const patientSchema = new mongoose.Schema({});
+
+const patientModel = mongoose.model("patientModel", patientSchema);
+module.exports = patientModel;
