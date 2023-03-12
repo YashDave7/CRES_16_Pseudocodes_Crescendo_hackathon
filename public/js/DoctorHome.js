@@ -3,6 +3,7 @@ function onScanSuccess(qrCodeMessage) {
     document.getElementById("result").innerHTML =
       qrCodeMessage;
       console.log(qrCodeMessage);
+      document.getElementById("Nothing").innerHTML='';
   }
   
   // When scan is unsuccessful fucntion will produce error message
