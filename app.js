@@ -187,35 +187,7 @@ app.get("/doctorHome", function (req, res) {
 });
 
 app.get("/patientHome", async function (req, res) {
-<<<<<<< HEAD
   
-=======
-  // Creating the dat
-  let data = { user1 };
-
-  // Converting the data into String format
-  let stringdata = JSON.stringify(data);
-
-  // Print the QR code to terminal
-  // QRCode.toString(stringdata,
-  //   function (err, QRcode) {
-  //     if (err) return console.log("error ")
-
-  //     console.log(QRcode)
-  //   })
-
-  // // Converting the data into base64
-  // QRCode.toDataURL(stringdata, function (err, code) {
-  //   if (err) return console.log("error occurred")
-  //   // Printing the code
-  //   console.log(code)
-
-  QRCode.toFile("public/qrCode.png", stringdata, function (err) {
-    if (err) return console.log("error occurred");
-    // Printing the code
-    res.render("patientHome.ejs", { patientData: patientData });
-  });
->>>>>>> 00bb4effc9e22f75a3c6c8f7596fefb1b4bfc3ce
 });
 
 const PORT = process.env.PORT || 5000;
