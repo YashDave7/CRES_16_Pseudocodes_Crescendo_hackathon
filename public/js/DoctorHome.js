@@ -1,7 +1,7 @@
 // When scan is successful fucntion will produce data
 function onScanSuccess(qrCodeMessage) {
     document.getElementById("result").innerHTML =
-      '<span class="result">' + qrCodeMessage + "</span>";
+      qrCodeMessage;
       console.log(qrCodeMessage);
   }
   

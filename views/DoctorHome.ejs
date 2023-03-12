@@ -61,7 +61,6 @@
                 </div>
             </div>
 
-            <div id="result"></div>
             
         </div>
         <div class="task" draggable="true" style="
@@ -101,10 +100,12 @@
             margin-block-start: 0;
             margin-block-end: 0;
             margin-left: -1px;">
-                <li>Name:   <%=    %>             </li>
-                <li>Age:         <%=    %>           </li>
-                <li>Contact No:       <%=    %>          </li>
-                <li>Hospital Affliated With:          <%=    %>          </li>
+                <li>Name:   <%=  user.name  %>             </li>
+                <li>Speciality:   <%=  user.select  %>             </li>
+                <li>UPR ID:   <%=  user.upr  %>             </li>
+                <li>Username:   <%=  user.username  %>             </li>
+                <li>Contact No:       <%= user.email  %>          </li>
+                <li>Hospital Affliated With:          <%= user.hospital   %>          </li>
 
             </ul>
 

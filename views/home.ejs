@@ -22,17 +22,20 @@
 	        <a class="nav-link" href="#">Home</a>
 	      </li>
 	      <li class="nav-item">
-	        <a class="nav-link" href="#">About Us</a>
+	        <a class="nav-link" href="#about">About Us</a>
 	      </li>
 	      <li class="nav-item">
-	        <a class="nav-link" href="#">Features</a>
+	        <a class="nav-link" href="#services">Services</a>
 	      </li>
 	     
 	      <li class="nav-item">
-	        <a class="nav-link" href="#">Contact Us</a>
+	        <a class="nav-link" href="#footerss">Contact Us</a>
 	      </li>
 		  <li class="nav-item">
-			<a class="nav-link" href="login.html">Login</a>
+			<a class="nav-link" href="/patientLogin">Patient Login</a>
+		</li>
+		  <li class="nav-item">
+			<a class="nav-link" href="/DoctorLogin">Provider Login</a>
 		</li>
 	    </ul>
 	  </div>
@@ -45,7 +48,8 @@
 				<div class="col-lg-6">
 					<h1>Welcome to Our EHR Website</h1>
 					<p>EHRs are digital platforms designed to capture, store, and manage patient health information. Our website is dedicated to providing resources and information on EHRs, including their benefits, challenges, and best practices for implementation and use.</p>
-					<button class="btn btn-primary">Get Started</button>
+					<button class="btn btn-primary"><a href="patientSignup">Patient</a></button>
+					<button class="btn btn-primary"><a href="DoctorSignup">Healthcare provider</a></button>
 				</div>
 				<div class="col-lg-6">
 					<img src="\images\img1.svg" alt="hero image">
@@ -54,7 +58,7 @@
 		</div>
 	</section>
     <!-- Why EHR Section -->
-    <section class="ehr-section">
+    <section id="about"  class="ehr-section">
 		<div class="container">
 			<div class="row">
                 <div class="col-lg-6">
@@ -75,7 +79,7 @@
 
 
 	<!-- Features Section -->
-<div class="special">
+<div id="services" class="special">
 <section class="services-section">
     <div class="container">
         <h2 style="font-size: 48px;">Our Services</h2>
@@ -187,7 +191,7 @@
     </section>
 
 	<script src="home.js"></script>
-    <div class="footer section_padding">
+    <div id="footerss" class="footer section_padding">
         <div class="container">
         <div class="row justify-content-between">
         <div class="col-xl-2 col-md-4 col-sm-6 single-footer-widget">

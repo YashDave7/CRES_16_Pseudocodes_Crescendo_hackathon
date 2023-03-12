@@ -32,8 +32,8 @@ connection.once("open", () => {
 
 // MongoDB ends
 
-const user1 = {};
-const user2 = {};
+var user1 = {};
+var user2 = {};
 
 // get reqs
 
@@ -50,20 +50,49 @@ app.get("/doctorSignup", function (req, res) {
 });
 
 app.get("/patientLogin", function (req, res) {
-  res.send("This is patient Login");
+  res.render("patientLogin");
+});
+app.get("/DoctorLogin", function (req, res) {
+  res.render("DoctorLogin");
 });
 
 app.get("/patientProfile", function (req, res) {
-  res.send("This is patient profile!");
+  // Creating the dat
+  console.log(user1);
+  let data = {user1};
+
+  // Converting the data into String format
+  let stringdata = JSON.stringify(data);
+
+  // Print the QR code to terminal
+  // QRCode.toString(stringdata,
+  //   function (err, QRcode) {
+  //     if (err) return console.log("error ")
+
+  //     console.log(QRcode)
+  //   })
+
+  // // Converting the data into base64
+  // QRCode.toDataURL(stringdata, function (err, code) {
+  //   if (err) return console.log("error occurred")
+  //   // Printing the code
+  //   console.log(code)
+
+  QRCode.toFile("public/qrCode.png", stringdata, function (err) {
+    if (err) return console.log("error occurred");
+    // Printing the code
+    res.render("patientHome", { user: user1});
+  });
 });
 
 app.get("/doctorProfile", function (req, res) {
-  res.send("This is Doctor Profile!");
+  res.render("DoctorHome", {user: user2});
 });
 
 // post reqs
 app.post("/patientSignup", async function (req, res) {
   const data = req.body;
+  user1 = data;
   bcrypt.hash(data.password, saltRounds, function (err, hash) {
     const newPatient = new patientModel({
       name: md5(data.name),
@@ -76,7 +105,7 @@ app.post("/patientSignup", async function (req, res) {
       bloodPressure: md5(data.bloodPressure),
       diabetes: md5(data.diabetes),
     });
-    user1 = newPatient;
+    console.log(newPatient);
     newPatient.save().catch((err) => {
       console.log(err);
     });
@@ -86,6 +115,7 @@ app.post("/patientSignup", async function (req, res) {
 
 app.post("/doctorSignup", async function (req, res) {
   const data = req.body;
+  user2 = data;
   bcrypt.hash(data.password, saltRounds, function (err, hash) {
     const newDoctor = new doctorModel({
       select: md5(data.select),
@@ -96,7 +126,6 @@ app.post("/doctorSignup", async function (req, res) {
       password: hash,
       hospital: md5(data.hospital),
     });
-    user2 = newDoctor;
 
     newDoctor.save().catch((err) => {
       console.log(err);
@@ -117,7 +146,7 @@ app.post("/patientLogin", function (req, res) {
         bcrypt.compare(password, foundUser.password, function (err, result) {
           if (result === true) {
             console.log("Found Patient!");
-            user1 = foundUser
+            user1 = foundUser;
             res.redirect("/patientProfile");
           } else {
             res.redirect("/patientLogin");
@@ -158,31 +187,7 @@ app.get("/doctorHome", function (req, res) {
 });
 
 app.get("/patientHome", async function (req, res) {
-  // Creating the dat
-  let data = {user1};
-
-  // Converting the data into String format
-  let stringdata = JSON.stringify(data);
-
-  // Print the QR code to terminal
-  // QRCode.toString(stringdata,
-  //   function (err, QRcode) {
-  //     if (err) return console.log("error ")
-
-  //     console.log(QRcode)
-  //   })
-
-  // // Converting the data into base64
-  // QRCode.toDataURL(stringdata, function (err, code) {
-  //   if (err) return console.log("error occurred")
-  //   // Printing the code
-  //   console.log(code)
-
-  QRCode.toFile("public/qrCode.png", stringdata, function (err) {
-    if (err) return console.log("error occurred");
-    // Printing the code
-    res.render("patientHome.ejs");
-  });
+  
 });
 
 const PORT = process.env.PORT || 5000;
