@@ -13,30 +13,33 @@
     <script type="text/javascript" src="https://webqr.com/llqrcode.js"></script>
     <script type="text/javascript" src="https://apis.google.com/js/plusone.js"></script>
     <script type="text/javascript" src="https://webqr.com/webqr.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" integrity="sha512-jD+zMpKsNUgMw+1E8NtGGr25Nvqg9etzkDXt/sG8WYnh/xyv2Q1zLwzIh8aDleGnyJ+18GIlIjPEnYibYhJc1Q==" crossorigin="anonymous" />
+    <script src="https://kit.fontawesome.com/4b561163af.js" crossorigin="anonymous"></script>
 </head>
 
 <body>
     <!-- Navbar -->
     <nav class="navbar navbar-expand-lg navbar-light bg-light ">
-        <a class="navbar-brand" href="#">Hospital Logo</a>
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
-            aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarNav">
-            <ul class="navbar-nav ml-auto">
-                <li class="nav-item active">
-                    <a class="nav-link" href="#">Home</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="#">Contact Us</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="doctorForm.html">Logout</a>
-                </li>
-            </ul>
-        </div>
-    </nav>
+        <a class="navbar-brand" href="#"  style="color: #007bff; font-weight: bolder;"><img src="\images\logo.png" alt=""> MEDICO</a>
+         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+           <span class="navbar-toggler-icon"></span>
+         </button>
+         <div class="collapse navbar-collapse" id="navbarNav">
+           <ul class="navbar-nav ml-auto">
+             <li class="nav-item active">
+               <a class="nav-link" href="#">Home</a>
+             </li>
+             <li class="nav-item">
+               <a class="nav-link" href="#footerss">Contact Us</a>
+             </li>
+             <li class="nav-item">
+                <a class="nav-link" href="doctorForm.html">Logout</a>
+            </li>
+             
+           </ul>
+         </div>
+       </nav>
+    
     <div class="profile" style="    
     margin-top: 32px;
     display: flex;
@@ -48,7 +51,7 @@
           
     border: 2px #6c757d dashed;
     width: 1080px;
-    height: 177px;
+  
     margin-top: 2.2em;
     margin-left: 2rem;
 
@@ -67,7 +70,6 @@
         width: 100%;
         position: absolute;
         right: 0;
-        height: 177px;
         margin-top: 2.2rem;
         margin-right: 2rem;
     ">
@@ -113,9 +115,17 @@
     </div>
 
     <div>
-        <h3 style="padding-top: 20px;">Patient's History</h3>
-        <div></div>
+        <h3 style="padding-top: 50px; padding-bottom: 50px;">Patient's History:</h3>
+        <div style="padding: 50px 100px 200px 100px ; " id="Nothing">	<img src="\images\img.6.svg" alt="hero image" style="height: 200px;width: 200px;">Nothing Here</div>
     </div>
+    <footer id="footer">
+        <i class="fa-brands fa-twitter  contlogo"></i>
+        <i class="fa-brands fa-facebook contlogo"></i>
+        <i class="fa-brands fa-instagram contlogo"></i>
+        <i class="fa-solid fa-envelope  contlogo"></i>
+        <p>© Copyright Pseudocodes</p>
+    
+      </footer>
     <script src='https://cdnjs.cloudflare.com/ajax/libs/html5-qrcode/2.2.0/html5-qrcode.min.js'></script>
     <script src="/js/DoctorHome.js"> </script>
 

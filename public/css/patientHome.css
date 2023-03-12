@@ -274,4 +274,25 @@ ul{
     text-align: center;
     display: inline-block;
 }
+.fa-solid {
+   
+  color: black;
+  font-size: 150%;
+  padding-bottom: 5px;
+
+}
+.fas{
+  color: black;
+  font-size: 150%;
+  padding-bottom: 5px;
+}
+.fa-regular {
+    /* font-size: 500%; */
+    color: black;
+  font-size: 150%;
+  padding-bottom: 5px;
+}
+i:hover {
+    color: #ff4c68;
+}
   
